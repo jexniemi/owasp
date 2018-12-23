@@ -2,7 +2,9 @@ This is a web-application made to demonstrate 5 of the OWASP Top 10 Application 
 
 ## INSTRUCTIONS
 
-The frontend and backend should be started separately. The frontend is intended only to be started in development mode (npm start)
+The frontend and backend should be started separately in separate terminal windows. You need to have the following software installed in order to run the project:
+
+* Node.js / NPM (Node Package Manager, installed along with Node.js)
 
 ### Windows
 
