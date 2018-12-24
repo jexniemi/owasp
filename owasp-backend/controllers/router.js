@@ -7,11 +7,11 @@ router.get('/', async (request, response) => {
 
 router.post('/', async (request, response) => {
 	try {
-		const example = new Example(request.body.content)
-		const result = await example.save();
-		return response.status(201).json(result);
+		submits.push(request.body)
+		response.status(201).send("Submit created succesfully");
 	} catch (exception) {
-		console.log(exception)
+    console.log(exception)
+    response.status(400).send("Uh oh, something went wrong");
 	}
 })
 
