@@ -28,13 +28,13 @@ You should see 'Compiled successfully!' message in the terminal
 
 ## The application
 
-Suppose there is a lottery, where participants can draw raffle tickets that contain codes. There is only one winning code and that can be checked by the administrator via a hidden page. This application's core functionality is to give the lotter participants a possibility to submit their name, e-mail and the code found in their raffle ticket via a form. After they have submitted their details, the winner will be later on contacted by the administrator, who has check if any of the codes submitted by the users match the winning code.
+Suppose there is a lottery, where participants can draw raffle tickets that contain codes. There is only one winning code and that can be checked by the administrator via a hidden page. This application's core functionality is to give the lottery participants a possibility to submit their name, e-mail and the code found in their raffle ticket via a form. After they have submitted their details, the winner will be later on contacted by the administrator, who has check if any of the codes submitted by the users match the winning code.
 
 Keep in mind that this application does not use a real database, so any data submitted to the backend will be cleared if the application is restarted. Also, there is some data hard coded directly to the backend (such as the winning raffle code, and possibly some user details, you should never do this!!), as it will be there only for demonstration purposes. In a real-world situation this data would be hidden in the database, but the hard coded data is suitable for our usage.
 
 ## OWASPS security risks found in the application
 
-### 1: Sensitive Data Exposure
+### A3:2017 - Sensitive Data Exposure
 
 The supposedly secret winning code is directly viewable by anyone at http://localhost:4100/secretcode (localhost:4100 being the backend address that is used local development mode, in production it would be available as well). Also, all the submits by all users are available at http://localhost:4100/submits, the data in each submit also contains sensitive user information that could be compromised, such as their names and e-mail addresses. This issue could be fixed by showing the data only to a verified user (the admin), so that each request to these endpoints would require the user to send authorization header (containing their token that would be verified at the backend for example) along with their request.
 
@@ -53,7 +53,7 @@ Steps to reproduce an XXS attack to the site: 1. Go to the form, enter name and 
 
 ### A9:2017-Using Components with Known Vulnerabilities
 
-Navigate to backend's package-lock.json, and notice that the app uses "deep-extend" version 0.4.2. As noted by the National Vulnerability Database: "The utilities function in all versions <= 0.5.0 of the deep-extend node module can be tricked into modifying the prototype of Object when the attacker can control part of the structure passed to this function. This can let an attacker add or modify existing properties that will exist on all objects." [Source.](https://nvd.nist.gov/vuln/detail/CVE-2018-3750). If you are logged in administrator of a project, GitHub will notice you about this type of security vulnerabilities. In this case, the issue could be fixed by updating the dependency.
+Steps to reproduce: Navigate to backend's package-lock.json, and notice that the app uses "deep-extend" version 0.4.2. As noted by the National Vulnerability Database: "The utilities function in all versions <= 0.5.0 of the deep-extend node module can be tricked into modifying the prototype of Object when the attacker can control part of the structure passed to this function. This can let an attacker add or modify existing properties that will exist on all objects." [Source.](https://nvd.nist.gov/vuln/detail/CVE-2018-3750). If you are logged in administrator of a project, GitHub will notice you about this type of security vulnerabilities. In this case, the issue could be fixed by updating the dependency.
 
 
 ### A10:2017 - Insufficient Logging & Monitoring
