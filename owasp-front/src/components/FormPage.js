@@ -11,16 +11,34 @@ class FormPage extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  handleSubmit() {
+    const name = this.state.name
+    const email = this.state.email
+    const code = this.state.code
+    const data = {
+      name, email, code
+    }
+    fetch('http://localhost:4100/submits', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => console.log(response.json()))
+  }
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <h1>Submit your details</h1>
           <div>
             <label>Name</label>
