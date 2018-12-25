@@ -6,10 +6,6 @@ router.get('/submits', async (request, response) => {
 	response.json(submits)
 })
 
-router.get('/secretCode', async (request, response) => {
-	response.json(secretCode)
-})
-
 router.post('/submits', async (request, response) => {
 	try {
 		submits.push(request.body)
@@ -18,6 +14,10 @@ router.post('/submits', async (request, response) => {
     console.log(exception)
     response.status(400).send("Uh oh, something went wrong");
 	}
+})
+
+router.get('/secretcode', async (request, response) => {
+	response.json(secretCode)
 })
 
 

@@ -3,7 +3,7 @@ const submits = [
 ]
 
 const secretCode = {
-  winningCode: '239123829'
+  winningcode: '239123829'
 }
 
 module.exports = {
