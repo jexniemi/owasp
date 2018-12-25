@@ -53,7 +53,7 @@ Steps to reproduce an XXS attack to the site: 1. Go to the form, enter name and 
 
 ### A9:2017-Using Components with Known Vulnerabilities
 
-Navigate to backend's package-lock.json, and notice that the app uses "deep-extend" version 0.4.2. As noted by the National Vulnerability Database: "The utilities function in all versions <= 0.5.0 of the deep-extend node module can be tricked into modifying the prototype of Object when the attacker can control part of the structure passed to this function. This can let an attacker add or modify existing properties that will exist on all objects." [Source.](https://nvd.nist.gov/vuln/detail/CVE-2018-3750)
+Navigate to backend's package-lock.json, and notice that the app uses "deep-extend" version 0.4.2. As noted by the National Vulnerability Database: "The utilities function in all versions <= 0.5.0 of the deep-extend node module can be tricked into modifying the prototype of Object when the attacker can control part of the structure passed to this function. This can let an attacker add or modify existing properties that will exist on all objects." [Source.](https://nvd.nist.gov/vuln/detail/CVE-2018-3750). If you are logged in administrator of a project, GitHub will notice you about this type of security vulnerabilities. In this case, the issue could be fixed by updating the dependency.
 
 
 ### A10:2017 - Insufficient Logging & Monitoring
