@@ -6,7 +6,7 @@ This is a web-application made to demonstrate 5 of the OWASP Top 10 Application 
 
 The frontend and backend should be started separately in separate terminal windows. The application will assume that the frontend is running at port 3000 and backend at port 4100, so make sure you have these ports cleared for usage. You need to have the following software installed in order to run the project:
 
-* Node.js / NPM (Node Package Manager, installed along with Node.js) ((Download)[https://nodejs.org/en/download/])
+* Node.js / NPM (Node Package Manager, installed along with Node.js) (Download: https://nodejs.org/en/download/)
 
 ### Windows
 
