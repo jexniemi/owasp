@@ -21,6 +21,11 @@ class UsersPage extends React.Component {
       })
   }
 
+  setHTML = (text) => {
+    console.log(text)
+    return { __html: text };
+  }
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -35,7 +40,7 @@ class UsersPage extends React.Component {
           <div key={index}>
             <p>-----------</p>
             <p>{item.name}</p>
-            <p>{item.email}</p>
+            <p dangerouslySetInnerHTML={ this.setHTML(item.email) }></p>
             <p>{item.code}</p>
           </div>
         ))}
