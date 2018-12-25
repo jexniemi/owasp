@@ -40,7 +40,7 @@ Now assume there is an admin user, who can log in using the frontend (this has n
 
  ### 3: Cross-Site Scripting (XSS)
 
-Steps to reproduce an XXS attack to the site: 1. Go to the form, enter name and code and type ´´´<a href=’localhost:3001'>jeejee@mail.com</a>´´´ to the email field 2. Go to the page that list all submissions at http://localhost:3000/submits 3. You can see that one of the submits in the list contains a link called jeejee@mail.com. This way any user who fills the form is able to perform an XXS attack. The flaw that causes this is the fact that the inner html is set dangerously, which is something an inexperienced developer might do. This can be simply fixed by removing the dangerouslySetInnerHTML attribute from the 'p' tag in the UsersPage.js.
+Steps to reproduce an XXS attack to the site: 1. Go to the form, enter name and code and type ```<a href=’localhost:3001'>jeejee@mail.com</a>``` to the email field 2. Go to the page that list all submissions at http://localhost:3000/submits 3. You can see that one of the submits in the list contains a link called jeejee@mail.com. This way any user who fills the form is able to perform an XXS attack. The flaw that causes this is the fact that the inner html is set dangerously, which is something an inexperienced developer might do. This can be simply fixed by removing the dangerouslySetInnerHTML attribute from the 'p' tag in the UsersPage.js.
 
 
 
