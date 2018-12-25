@@ -1,11 +1,16 @@
 const router = require('express').Router()
 const submits = require('../mockDB').submits
+const secretCode = require('../mockDB').secretCode
 
-router.get('/', async (request, response) => {
+router.get('/submits', async (request, response) => {
 	response.json(submits)
 })
 
-router.post('/', async (request, response) => {
+router.get('/secretCode', async (request, response) => {
+	response.json(secretCode)
+})
+
+router.post('/submits', async (request, response) => {
 	try {
 		submits.push(request.body)
 		response.status(201).send("Submit created succesfully");
