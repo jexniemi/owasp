@@ -51,6 +51,11 @@ Now assume there is an admin user, who can log in using the frontend (this has n
 Steps to reproduce an XXS attack to the site: 1. Go to the form, enter name and code and type ```<a href=’localhost:3001'>jeejee@mail.com</a>``` to the email field 2. Go to the page that list all submissions at http://localhost:3000/submits 3. You can see that one of the submits in the list contains a link called jeejee@mail.com. This way any user who fills the form is able to perform an XXS attack. The flaw that causes this is the fact that the inner html is set dangerously, which is something an inexperienced developer might do. This can be simply fixed by removing the dangerouslySetInnerHTML attribute from the ```<p>``` tag in the UsersPage.js.
 
 
+### A9:2017-Using Components with Known Vulnerabilities
+
+Navigate to backend's package-lock.json, and notice that the app uses "deep-extend" version 0.4.2. As noted by the National Vulnerability Database: "The utilities function in all versions <= 0.5.0 of the deep-extend node module can be tricked into modifying the prototype of Object when the attacker can control part of the structure passed to this function. This can let an attacker add or modify existing properties that will exist on all objects." [Source.](https://nvd.nist.gov/vuln/detail/CVE-2018-3750)
+
+
 ### A10:2017 - Insufficient Logging & Monitoring
 
 Steps to reproduce: 1. Open the terminal window where you backend is running 2. Perform any request to any of the endpoints available in the backend. As you can see, nothing is logged to the terminal window, nor are there any other logs saved anywhere. This means that the backend server is not monitored in any way, making attacks very hard to detect. Even a simple logger middleware would help a great deal. The solution to this issue would be adding a proper logger that tracks all requests to the backend and saving the logs regularly to a file.
